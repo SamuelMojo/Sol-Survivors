@@ -1,0 +1,11 @@
+node_modules/
+.DS_Store
+*.log
+saves/
+dist/
+__pycache__/
+tests/shots/
+tests/stage_files.sh
+*.tgz
+*.pem
+.env

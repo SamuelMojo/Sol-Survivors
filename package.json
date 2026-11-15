@@ -1,0 +1,26 @@
+{
+  "name": "sol-survivors",
+  "version": "0.11.0",
+  "description": "Sol Survivors: a co-op Mars survival game for kids aged 7-12 (NASA Space Apps Challenge 2026)",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "node game/server/index.js",
+    "dev": "nodemon --watch game/server --watch game/rules --watch levels --watch story game/server/index.js",
+    "make:map": "node levels/map/make-map.js",
+    "build:web": "node game/build-web.js"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "@fontsource/press-start-2p": "^5.2.0",
+    "@fontsource/vt323": "^5.2.0",
+    "express": "^5.1.0",
+    "phaser": "^4.2.1",
+    "socket.io": "^4.8.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}

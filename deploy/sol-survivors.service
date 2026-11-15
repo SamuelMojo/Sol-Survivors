@@ -1,0 +1,23 @@
+[Unit]
+Description=Sol Survivors game server
+After=network.target
+
+[Service]
+Type=simple
+User=sol
+WorkingDirectory=/opt/sol-survivors
+Environment=NODE_ENV=production
+Environment=PORT=3000
+Environment=MAX_ROOMS=40
+Environment=MAX_CLIENTS=250
+ExecStart=/usr/bin/node game/server/index.js
+Restart=always
+RestartSec=3
+# A 1 GB machine: restart the game server if it ever grows past this
+MemoryMax=250M
+NoNewPrivileges=true
+ProtectSystem=full
+ProtectHome=true
+
+[Install]
+WantedBy=multi-user.target

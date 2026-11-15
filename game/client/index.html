@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- The page the browser opens. Phaser draws the game into #game; the lobby is plain HTML on top.
+     👤 Owner: Game logic & backend. -->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Sol Survivors</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div id="game"></div>
+  <!-- Opening crawl ("THE YEAR IS 2041..."), shown when a game starts with the story on (see js/crawl.js) -->
+  <div id="crawl"></div>
+  <!-- Lobby: choose name, look and job (see js/lobby.js) -->
+  <div id="lobby">
+    <div class="panel">
+      <h1>SOL SURVIVORS</h1>
+      <p class="sub">A Mars survival game for 1–3 astronauts</p>
+      <div id="lobby-step1">
+        <label>Your name<br><input id="lobby-name" maxlength="15" placeholder="Astronaut" autocomplete="off"></label>
+        <p>Pick your helmet visor:</p>
+        <div id="lobby-looks"></div>
+        <button id="lobby-join-btn" class="big">Create a game ▶</button>
+        <div id="lobby-code-row">
+          <p>Or join your friends with their game code:</p>
+          <input id="lobby-code" maxlength="4" placeholder="CODE" autocomplete="off" autocapitalize="characters" spellcheck="false">
+          <button id="lobby-code-btn" class="big">Join ▶</button>
+        </div>
+      </div>
+      <div id="lobby-step2" style="display:none">
+        <p id="lobby-room" class="room-code"></p>
+        <p>Choose your job (each job can only be taken once):</p>
+        <div id="lobby-jobs"></div>
+        <p id="lobby-mode"></p>
+        <ul id="lobby-crew"></ul>
+        <button id="lobby-ready" class="big">Ready!</button>
+        <button id="lobby-start" class="big">Start mission</button>
+        <label id="lobby-story-wrap"><input type="checkbox" id="lobby-story" checked> Play the story (launch interview + voyage)</label>
+        <p id="lobby-wait" class="sub"></p>
+      </div>
+      <p id="lobby-msg" class="warn"></p>
+      <p id="lobby-join" class="sub"></p>
+    </div>
+  </div>
+  <!-- Socket.IO (served by the server), Phaser (from node_modules, so no internet is needed), then our code -->
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/lib/phaser/phaser.min.js"></script>
+  <script type="module" src="/js/main.js"></script>
+</body>
+</html>
